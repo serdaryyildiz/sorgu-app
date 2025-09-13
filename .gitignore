@@ -1,0 +1,3 @@
+# Whole dotnev files except example
+.env*
+!.env.example
