@@ -4,12 +4,12 @@
   "description": "",
   "license": "ISC",
   "author": "serdaryy",
-  "type": "commonjs",
+  "type": "module",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run build && electron ./dist/index.js",
-    "build" : "tsc -p"
+    "build": "tsc -p"
   },
   "devDependencies": {
     "@types/node": "^24.4.0",
