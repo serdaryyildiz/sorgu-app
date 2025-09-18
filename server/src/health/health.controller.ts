@@ -1,5 +1,8 @@
 import { Controller , Get} from '@nestjs/common';
 import { HealthCheck, HealthCheckService, HttpHealthIndicator } from '@nestjs/terminus';
+import configuration from "../config/configuration"
+
+const {base_url} = configuration();
 
 @Controller('health')
 export class HealthController {
@@ -12,7 +15,7 @@ export class HealthController {
     @HealthCheck()
     getHealth(){
         return this.health.check([
-            () => this.http.pingCheck('server-status' , 'http://localhost:3030')
+            () => this.http.pingCheck('server-status' , base_url)
         ])
     }
 }
