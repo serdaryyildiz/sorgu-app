@@ -1,13 +1,18 @@
 import { Controller , Get} from '@nestjs/common';
+import { HealthCheck, HealthCheckService, HttpHealthIndicator } from '@nestjs/terminus';
 
 @Controller('health')
 export class HealthController {
+    constructor(
+        private health: HealthCheckService,
+        private http: HttpHealthIndicator,
+    ){}
+
     @Get()
-    getHealth():String{
-        try {
-            return "200 OK";
-        }catch(e){
-            return `Error :\n${(e as Error).message}`;
-        }
+    @HealthCheck()
+    getHealth(){
+        return this.health.check([
+            () => this.http.pingCheck('server-status' , 'http://localhost:3030')
+        ])
     }
 }
