@@ -2,10 +2,10 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import configuration from '../config/configuration';
 import { HealthModule } from 'src/health/health.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import * as path from 'path';
+import { QueueModule } from 'src/queue/queue.module';
 
 @Module({
   imports: 
@@ -39,7 +39,8 @@ import * as path from 'path';
         })
       }),
 
-      HealthModule
+      HealthModule,
+      QueueModule
     ],
     
   controllers: [AppController],

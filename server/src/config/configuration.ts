@@ -6,4 +6,6 @@ export default () => ({
     db_username :process.env.DB_USERNAME,
     db_password:process.env.DB_PASSWORD,
     db:process.env.DATABASE,
+    redis_host:process.env.REDIS_HOST,
+    redis_port:Number(process.env.REDIS_PORT),
 });
