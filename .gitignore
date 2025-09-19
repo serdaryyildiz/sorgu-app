@@ -1,3 +1,5 @@
+.gitignore
+
 # Whole dotnev files except example
 .env*
 !.env.example
@@ -5,3 +7,7 @@
 # Dist folders
 
 dist*
+
+#node_modules
+
+node_modules
