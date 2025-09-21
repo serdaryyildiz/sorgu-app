@@ -5,11 +5,13 @@ import { User } from './entity/user.entity';
 
 @Controller('auth')
 export class AuthController {
+    
     constructor(private authService:AuthService){
         this.authService=authService;
     }
     @Post("/sign-up")
     signUp(@Body() authSignupCredentialsDto:AuthSignUpCredentialsDto) :Promise<User>{
+        console.log("auth");
         return this.authService.signUp(authSignupCredentialsDto);
     }
 

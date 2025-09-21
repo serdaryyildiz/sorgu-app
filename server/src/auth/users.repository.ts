@@ -10,8 +10,8 @@ import * as bcrypt from 'bcrypt';
 
 export const UsersRepository = (dataSource: DataSource) =>
   dataSource.getRepository(User).extend({
-    async createUser(authCredentialsDto: AuthSignUpCredentialsDto): Promise<User> {
-      const { username, password } = authCredentialsDto;
+    async createUser(authSignupCredentialsDto: AuthSignUpCredentialsDto): Promise<User> {
+      const { email,username, password } = authSignupCredentialsDto;
 
       //hash 
       const salt = await bcrypt.genSalt();
@@ -19,6 +19,7 @@ export const UsersRepository = (dataSource: DataSource) =>
 
       const user = this.create({
         username,
+        email,
         password: hashedPassword,
       });
 

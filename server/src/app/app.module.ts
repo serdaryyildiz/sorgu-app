@@ -6,6 +6,7 @@ import { HealthModule } from 'src/health/health.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import * as path from 'path';
 import { QueueModule } from 'src/queue/queue.module';
+import { AuthModule } from 'src/auth/auth.module';
 
 @Module({
   imports: 
@@ -40,7 +41,8 @@ import { QueueModule } from 'src/queue/queue.module';
       }),
 
       HealthModule,
-      QueueModule
+      QueueModule,
+      AuthModule,
     ],
     
   controllers: [AppController],
