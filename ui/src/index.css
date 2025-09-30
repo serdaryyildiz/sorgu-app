@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #2F2F2F;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -25,7 +25,8 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  justify-content: center;
+  align-items: center;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -47,11 +48,45 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #ADA7A7;
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+.form-holder {
+  border: 0.5rem solid #D37506;
+  background-color: #F7F7F7;
+  border-radius: 1.5rem;
+  padding: 8rem;
+}
+
+.ping-button {
+  margin-top: 2rem;
+}
+
+.login-form {
+  inset: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form input {
+  padding: 0.7rem;
+  padding-left: 1rem;
+  margin: 0.8rem;
+  background-color: #2F2F2F;
+}
+
+.login-form input::placeholder {
+  font-weight: bold;
+  color: #aaa;
+  font-size: 1rem;
+}
+
+.login-form button {
+  background-color: #D37506;
 }
 
 @media (prefers-color-scheme: light) {
