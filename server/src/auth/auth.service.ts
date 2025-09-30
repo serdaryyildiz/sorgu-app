@@ -25,14 +25,14 @@ export class AuthService {
 
   async signIn(
     authSignInCredentialsDto: AuthSignInCredentialsDto,
-  ): Promise<{ accesToken: string }> {
+  ): Promise<{ accessToken: string }> {
     const { username, password } = authSignInCredentialsDto;
     const user = await this.userRepository.findOne({ where: { username } });
 
     if (user && (await bcrypt.compare(password, user.password))) {
       const payload: IJwtPayload = { username };
-      const accesToken: string = await this.jwtService.sign(payload);
-      return { accesToken };
+      const accessToken: string = await this.jwtService.sign(payload);
+      return { accessToken };
     } else {
       throw new UnauthorizedException(
         'Incorrect username or password , please try again.',
